@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опитувальник</title>
+</head>
+<body>
+    <form action="handler.php">
+        <p><b>Виберіть вид кави</b></p>
+        <p>
+            <input type="checkbox" id="q1">
+            <label for="q1">Еспресо</label><br>
+            <input type="checkbox" id="q2">
+            <label for="q2">Капучино</label><br>
+            <input type="checkbox" id="q3">
+            <label for="q3">Лате</label><br>
+            <input type="checkbox" id="q4">
+            <label for="q4">Американо</label>
+        </p>
+
+        <br>
+
+        <p><b>Виберіть ступінь обсмаження</b></p>
+        <p>
+            <input type="radio" id="q5" name="roast" value="light">
+            <label for="q5">Світле</label><br>
+            <input type="radio" id="q6" name="roast" value="medium">
+            <label for="q6">Середнє</label><br>
+            <input type="radio" id="q7" name="roast" value="dark">
+            <label for="q7">Темне</label>
+        </p>
+
+        <br>
+
+        <p><b>Яку добавку бажаєте?</b></p>
+        <p>
+            <input type="checkbox" id="q8">
+            <label for="q8">Цукор</label><br>
+            <input type="checkbox" id="q9">
+            <label for="q9">Молоко</label><br>
+            <input type="checkbox" id="q10">
+            <label for="q10">Кориця</label><br>
+            <input type="checkbox" id="q11">
+            <label for="q11">Шоколад</label>
+        </p>
+
+        <br>
+
+        <p><b>Розмір порції</b></p>
+        <p>
+            <input type="radio" id="q12" name="size" value="small">
+            <label for="q12">Мала</label><br>
+            <input type="radio" id="q13" name="size" value="medium">
+            <label for="q13">Середня</label><br>
+            <input type="radio" id="q14" name="size" value="large">
+            <label for="q14">Велика</label>
+        </p>
+
+        <div>
+            <input type="submit" value="Відправити">
+            <input type="reset" value="Очистити">
+        </div>
+
+    </form>
+</body>
+</html>
