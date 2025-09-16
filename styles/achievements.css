@@ -1,0 +1,62 @@
+
+.achievements {
+  padding: 3rem 2rem;
+  background:  #292218;
+  color: #f5e6d3;
+  text-align: center;
+}
+
+.achievements h1 {
+  font-family: "Clicker Script", cursive;
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  color: #f5e6d3;
+  text-shadow: 0.2rem 0.2rem 0.6rem rgba(0, 0, 0, 0.8);
+}
+
+.achievements h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  margin-bottom: 2.5rem;
+  color: #d8cbb2;
+}
+
+.achievements section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.achievements article {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.achievements article:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.achievements article img {
+  width: 100%;
+  max-height: 24rem;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.achievements article mark {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #f5c542; /* жёлтый */
+  margin-top: auto; /* прижимаем к низу */
+}
+
+.achievements footer {
+  margin-top: 2.5rem;
+  font-size: 1rem;
+  color: #ccc;
+}

@@ -1,0 +1,119 @@
+.clicker-script-regular {
+  font-family: "Clicker Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.main-section {
+  position: relative;
+  height: 25rem; /* замість 400px */
+  background-image: url("../image/coffee_image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+.main-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); /* затемнення */
+}
+
+.main-section h1,
+.main-section h2 {
+  position: relative; /* щоб бути над затемненням */
+  z-index: 1;
+  color: white;
+  text-shadow: 0.2rem 0.2rem 0.4rem rgba(0,0,0,0.8);
+  margin: 0.5rem 0;
+}
+
+.main-section h1 {
+  font-family: "Clicker Script", cursive;
+  font-size: 6rem;              /* робимо більший */
+  font-weight: 400;
+  color: #f5e6d3;               /* теплий відтінок білого */
+  text-shadow: 0.4rem 0.4rem 0.8rem rgba(0,0,0,0.8);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05rem;      /* легке розтягування */
+}
+
+.main-section h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #e8d6c0;
+  text-shadow: 0.2rem 0.2rem 0.4rem rgba(0,0,0,0.6);
+}
+
+nav {  
+  margin: 0;
+  border-bottom: #f5e3e8 solid 1px;
+  padding: 25px 5px;
+  background: #e4e6e5;
+  text-align: center;
+}
+
+nav a {
+  padding: 0px 32px;
+  border-right: #f5bba3 dotted 2px;
+  font-size: 18px;
+  color: #f5b683;
+  text-decoration: none;
+}
+    
+nav a:hover {
+  text-decoration: underline; 
+  color: rgb(164, 131, 121);
+}
+    
+ nav a:last-child {
+  border-right: none;
+}
+
+.back-btn {
+  position: fixed;          /* фиксированная кнопка */
+  top: 20px;                /* сверху */
+  left: 20px;               /* слева */
+  z-index: 1000;            /* поверх всего */
+}
+
+.back-btn a {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background: linear-gradient(135deg, #a67b5b, #5c4033); /* кофейный градиент */
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+
+.back-btn a:hover {
+  background: linear-gradient(135deg, #f5e6d3, #d2a679);
+  color: #2c2c2c;
+  transform: translateY(-0.2rem) scale(1.05); /* лёгкий подъём */
+}
+
+h5{
+   text-align: center;
+    font-family: "Playfair Display", serif;
+    color: #292218;
+}
+
+

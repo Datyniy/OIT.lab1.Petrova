@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/wardroom.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap" rel="stylesheet">
     <title>Опитувальник</title>
 </head>
 <body>
+
+    <div class="back-btn">
+         <a href="index.html">← Повернутися назад</a>
+    </div>
+
     <form action="handler.php">
-        <p><b>Виберіть вид кави</b></p>
+        <p><h1>Виберіть вид кави</h1></p>
         <p>
             <input type="checkbox" id="q1">
             <label for="q1">Еспресо</label><br>
@@ -19,8 +30,6 @@
             <label for="q4">Американо</label>
         </p>
 
-        <br>
-
         <p><b>Виберіть ступінь обсмаження</b></p>
         <p>
             <input type="radio" id="q5" name="roast" value="light">
@@ -30,8 +39,6 @@
             <input type="radio" id="q7" name="roast" value="dark">
             <label for="q7">Темне</label>
         </p>
-
-        <br>
 
         <p><b>Яку добавку бажаєте?</b></p>
         <p>
@@ -44,8 +51,6 @@
             <input type="checkbox" id="q11">
             <label for="q11">Шоколад</label>
         </p>
-
-        <br>
 
         <p><b>Розмір порції</b></p>
         <p>

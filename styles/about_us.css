@@ -1,0 +1,76 @@
+body {
+    background-image: linear-gradient(to right bottom, #5c3317 10%,#a9745b 40%,#d2b48c 70%, #3e2723 100%); 
+}
+
+h1{
+    font-family:"Clicker Script", cursive;
+    font-size: 4rem;
+    color: #f5e6d3;
+    text-shadow: 0.2rem 0.2rem 0.6rem rgba(0,0,0,0.7);
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+}
+
+h3{
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #e8d6c0;
+    text-shadow: 0.2rem 0.2rem 0.4rem rgba(0,0,0,0.6);
+}
+
+.about-content{
+  display:flex;
+  align-items:center;
+  gap:2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+}
+
+.about-img img{
+  display:block;
+  max-width:400px;   
+  height:auto;
+}
+
+.about-text{
+  color:#f5e6d3;
+  text-shadow: .1rem .1rem .3rem rgba(0,0,0,.6);
+  max-width: 600px;
+}
+
+.about-text h2{
+  font-family:"Clicker Script", cursive;
+  font-size: 2rem;
+  margin:0 0 .5rem 0;
+  color:#ffdeb3;
+}
+
+.about-text ul{
+  list-style:none;
+  padding:0;
+  margin:.5rem 0 0 0;
+}
+.about-text ul li::before{
+  content:"☕ ";
+  color:#d2a679;
+}
+
+h4{
+    font-family: "Playfair Display", serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #e8d6c0;
+    text-shadow: 0.2rem 0.2rem 0.4rem rgba(0,0,0,0.6);
+    margin-left:auto;
+    text-align: center;
+}
+
+h6{
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    color: #e8d6c0;
+}

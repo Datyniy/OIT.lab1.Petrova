@@ -1,0 +1,50 @@
+body { background-image: radial-gradient(rgb(132, 86, 96), rgb(216, 177, 103),rgb(112, 63, 45), white); }
+
+form {
+  background: #2c2c2c;
+  padding: 2rem;
+  border-radius: 1rem;
+  color: #fff;
+  max-width: 500px;
+  margin: 2rem auto;
+  font-family: "Playfair Display", serif;
+}
+
+form p {
+  margin: 1rem 0 0.5rem;
+  font-weight: bold;
+  color: #f5e6d3;
+}
+
+input, select, textarea {
+  margin: 0.3rem 0;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  border: 1px solid #a67b5b;
+  background: #fff;
+  color: #2c2c2c;
+}
+
+input[type="submit"], input[type="reset"] {
+  background: linear-gradient(135deg, #a67b5b, #5c4033);
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: 0.3s;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #f5e6d3, #d2a679);
+  color: #2c2c2c;
+}
+
+form {
+    background-color: #866348;
+}
+
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    color:  #f5e6d3;
+}
