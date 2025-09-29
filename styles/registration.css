@@ -110,3 +110,19 @@ input[type="reset"]:hover {
 .back-btn a:hover {
   background: #7a523c;
 }
+
+input:required:invalid {
+  border: 2px solid #b15454;
+  background: #fff0f0;
+  outline: none;
+}
+
+input:required:valid {
+  border: 2px solid #4caf50;
+  background: #f0fff0;
+  outline: none;
+}
+
+input:focus {
+  box-shadow: 0 0 0.4rem rgba(255, 255, 255, 0.5);
+}
