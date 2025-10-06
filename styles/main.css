@@ -12,105 +12,179 @@
   --font-body: "Playfair Display", serif;
 }
 
-
+/* Заголовки с красивым шрифтом */
 .clicker-script-regular {
-  font-family: "Clicker Script", cursive;
+  font-family: var(--font-header);
   font-weight: 400;
   font-style: normal;
 }
 
-
+/* Главный блок */
 .main-section {
   position: relative;
-  height: 25rem; /* замість 400px */
+  z-index: 0;
+  height: 25rem;
   background-image: url("../image/coffee_image.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
-  color: white;
+  color: var(--main-text);
   text-align: center;
   padding: 2rem;
 }
 
+/* Затемнение фона */
 .main-section::before {
   content: "";
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5); 
+  background: rgba(0,0,0,0.5);
+  pointer-events: none; /* делает клики доступными */
 }
 
+/* Тексты */
 .main-section h1,
 .main-section h2 {
-  position: relative; 
+  position: relative;
   z-index: 1;
-  color: white;
+  color: var(--main-text);
   text-shadow: 0.2rem 0.2rem 0.4rem rgba(0,0,0,0.8);
   margin: 0.5rem 0;
 }
 
 .main-section h1 {
-  font-family: "Clicker Script", cursive;
-  font-size: 6rem;            
+  font-family: var(--font-header);
+  font-size: 6rem;
   font-weight: 400;
-  color: var(--main-text);             
+  color: var(--main-text);
   text-shadow: 0.4rem 0.4rem 0.8rem rgba(0,0,0,0.8);
   margin-bottom: 1.5rem;
-  letter-spacing: 0.05rem;    
+  letter-spacing: 0.05rem;
 }
 
 .main-section h2 {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-body);
   font-size: 2rem;
   font-weight: 400;
-  color: #e8d6c0;
+  color: var(--secondary-text);
   text-shadow: 0.2rem 0.2rem 0.4rem rgba(0,0,0,0.6);
 }
 
+/* Навигация */
 nav {  
+  position: relative;
+  z-index: 100;
   margin: 0;
   border-bottom: #f5e3e8 solid 1px;
   padding: 25px 5px;
-  background: #e4e6e5;
+  background: var(--nav-bg);
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 nav a {
-  padding: 0px 32px;
+  padding: 0 32px;
   border-right: #f5bba3 dotted 2px;
   font-size: 18px;
-  color: #f5b683;
+  color: var(--nav-link);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
-    
+
 nav a:hover {
   text-decoration: underline; 
-  color: rgb(164, 131, 121);
+  color: var(--nav-link-hover);
 }
-    
- nav a:last-child {
+
+nav a:last-child {
   border-right: none;
 }
 
+/* Контейнер для выпадающего меню */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 200;
+}
+
+/* Кнопка */
+.dropbtn {
+  color: var(--nav-link);
+  text-decoration: none;
+  padding: 0 32px;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.dropbtn:hover {
+  color: var(--nav-link-hover);
+}
+
+/* Стрелочка */
+.dropbtn::after {
+  content: " ▼";
+  font-size: 0.8rem;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropbtn::after {
+  transform: rotate(180deg); /* красивая анимация стрелки */
+}
+
+/* Подменю */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  background: rgba(50, 35, 25, 0.95);
+  min-width: 160px;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.4);
+  border-radius: 0.5rem;
+  z-index: 9999;
+}
+
+/* Ссылки в подменю */
+.dropdown-content a {
+  display: block;
+  padding: 0.8rem 1rem;
+  color: var(--main-text);
+  text-decoration: none;
+  text-align: left;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dropdown-content a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--accent);
+}
+
+/* Показываем подменю при наведении */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Кнопка "Назад" */
 .back-btn {
-  position: fixed;         
-  top: 20px;                
-  left: 20px;               
-  z-index: 1000;           
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
 }
 
 .back-btn a {
   display: inline-block;
   padding: 0.8rem 1.8rem;
-   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   color: #fff;
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-body);
   font-size: 1.1rem;
   font-weight: bold;
   border-radius: 0.6rem;
@@ -122,13 +196,264 @@ nav a:hover {
 .back-btn a:hover {
   background: linear-gradient(135deg, #f5e6d3, #d2a679);
   color: #2c2c2c;
-  transform: translateY(-0.2rem) scale(1.05); 
+  transform: translateY(-0.2rem) scale(1.05);
 }
 
-h5{
-   text-align: center;
-    font-family: "Playfair Display", serif;
-    color: #292218;
+/* Подвал */
+h5 {
+  text-align: center;
+  font-family: var(--font-body);
+  color: #292218;
 }
 
+.main-section::before {
+  pointer-events: none; /* делает фон некликабельным */
+}
 
+nav,
+.dropdown,
+.dropdown-content {
+  z-index: 10000; /* меню поверх фона */
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #a67b5b, #5c4033);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.4);
+  z-index: 2000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.scroll-top:hover {
+  background: linear-gradient(135deg, #f5e6d3, #d2a679);
+  color: #2c2c2c;
+  transform: translateY(-5px) scale(1.05);
+  opacity: 1;
+}
+
+/* Контейнер пошуку */
+.search-box {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--accent);
+  border-radius: 2rem;
+  padding: 0.2rem 0.5rem;
+  box-shadow: 0 0.3rem 0.6rem rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.search-box {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  background: rgba(93, 64, 55, 0.7);
+  border: 1px solid #d2a679;
+  border-radius: 2rem;
+  padding: 0.2rem 0.6rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #f5e6d3;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  width: 120px;
+  transition: width 0.3s ease;
+}
+
+.search-box input::placeholder {
+  color: #e8d6c0;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  color: #f5e6d3;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.search-box:hover {
+  background: rgba(93, 64, 55, 0.9);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.search-box:hover input {
+  width: 160px;
+}
+
+.search-box button:hover {
+  color: #d2a679;
+}
+
+@media (max-width: 768px) {
+  .search-box {
+    position: static;
+    transform: none;
+    margin: 1rem auto;
+    justify-content: center;
+    width: 80%;
+  }
+
+  .search-box input {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .search-box button {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  nav a, .dropbtn {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-right: none;
+  }
+
+  .dropdown-content {
+    position: static;
+    display: none;
+    width: 100%;
+    background: rgba(60, 40, 30, 0.95);
+    text-align: center;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Заголовки */
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  h2, h3 {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  /* Основные блоки */
+  .main-section {
+    padding: 1rem;
+    height: auto;
+  }
+
+  .about-content,
+  .registration,
+  .achievements-content,
+  .wardroom-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.2rem;
+    padding: 1rem;
+  }
+
+  .about-img,
+  .achievements-img {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .about-text,
+  .registration form,
+  .achievements-text,
+  .wardroom-text {
+    width: 90%;
+    max-width: 500px;
+  }
+
+  /* Кнопки */
+  input[type="submit"],
+  input[type="reset"],
+  .back-btn a,
+  .scroll-top {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  /* Наверх */
+  .scroll-top {
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  /* Убираем большие отступы */
+  body {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .dropbtn::after {
+    display: none; /* убираем стрелку, если не влезает */
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2, h3 {
+    font-size: 1rem;
+  }
+
+  .about-img {
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+
+  .hover-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .hover-text p {
+    font-size: 0.9rem;
+  }
+}
