@@ -246,19 +246,6 @@ nav,
 }
 
 /* Контейнер пошуку */
-.search-box {
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid var(--accent);
-  border-radius: 2rem;
-  padding: 0.2rem 0.5rem;
-  box-shadow: 0 0.3rem 0.6rem rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
-}
 
 .search-box {
   position: absolute;
@@ -312,25 +299,7 @@ nav,
   color: #d2a679;
 }
 
-@media (max-width: 768px) {
-  .search-box {
-    position: static;
-    transform: none;
-    margin: 1rem auto;
-    justify-content: center;
-    width: 80%;
-  }
-
-  .search-box input {
-    width: 100%;
-    font-size: 1rem;
-  }
-
-  .search-box button {
-    font-size: 1.2rem;
-  }
-}
-
+/* --- Планшеты (до 1024px) --- */
 @media (max-width: 1024px) {
   nav {
     display: flex;
@@ -342,40 +311,31 @@ nav,
   nav a, .dropbtn {
     font-size: 1rem;
     padding: 0.5rem 1rem;
-    border-right: none;
   }
 
   .dropdown-content {
     position: static;
-    display: none;
     width: 100%;
-    background: rgba(60, 40, 30, 0.95);
     text-align: center;
   }
 
-  .dropdown:hover .dropdown-content {
-    display: block;
+  .search-box {
+    position: static;
+    transform: none;
+    margin: 1rem auto;
   }
 }
 
+/* --- Телефоны (до 768px) --- */
 @media (max-width: 768px) {
-  /* Заголовки */
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     text-align: center;
-    margin: 1rem 0;
   }
 
   h2, h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: center;
-    padding: 0 1rem;
-  }
-
-  /* Основные блоки */
-  .main-section {
-    padding: 1rem;
-    height: auto;
   }
 
   .about-content,
@@ -385,8 +345,7 @@ nav,
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1.2rem;
-    padding: 1rem;
+    gap: 1rem;
   }
 
   .about-img,
@@ -404,44 +363,40 @@ nav,
     max-width: 500px;
   }
 
-  /* Кнопки */
-  input[type="submit"],
-  input[type="reset"],
-  .back-btn a,
-  .scroll-top {
-    font-size: 1rem;
-    padding: 0.6rem 1.2rem;
-  }
-
-  /* Наверх */
-  .scroll-top {
-    bottom: 1rem;
-    left: 1rem;
-  }
-
-  /* Убираем большие отступы */
-  body {
-    padding: 0;
-    margin: 0;
-  }
-}
-
-@media (max-width: 480px) {
   nav {
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  .dropbtn::after {
-    display: none; /* убираем стрелку, если не влезает */
+  nav a {
+    border: none;
+    display: block;
   }
 
+  .search-box {
+    width: 80%;
+    justify-content: center;
+  }
+
+  .search-box input {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+/* --- Очень маленькие экраны (до 480px) --- */
+@media (max-width: 480px) {
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   h2, h3 {
     font-size: 1rem;
+  }
+
+  nav a, .dropbtn {
+    font-size: 0.9rem;
+    padding: 0.4rem;
   }
 
   .about-img {
@@ -450,10 +405,278 @@ nav,
   }
 
   .hover-text h2 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .hover-text p {
     font-size: 0.9rem;
   }
+
+  .search-box {
+    width: 90%;
+  }
 }
+/* --- Планшеты (до 1024px) --- */
+@media (max-width: 1024px) {
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  nav a, .dropbtn {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .dropdown-content {
+    position: static;
+    width: 100%;
+    text-align: center;
+  }
+
+  .search-box {
+    position: static;
+    transform: none;
+    margin: 1rem auto;
+  }
+}
+
+/* --- Телефоны (до 768px) --- */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  h2, h3 {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .about-content,
+  .registration,
+  .achievements-content,
+  .wardroom-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .about-img,
+  .achievements-img {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .about-text,
+  .registration form,
+  .achievements-text,
+  .wardroom-text {
+    width: 90%;
+    max-width: 500px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    border: none;
+    display: block;
+  }
+
+  .search-box {
+    width: 80%;
+    justify-content: center;
+  }
+
+  .search-box input {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+/* Кнопка Sign in (РЕЄСТРАЦІЯ) */
+nav a[href="./registration.html"] {
+  position: fixed;
+  top: 20px;
+  left: 30px;
+  background: linear-gradient(135deg, #a67b5b, #5c4033);
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 2rem;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+nav a[href="./registration.html"]:hover {
+  background: linear-gradient(135deg, #d2a679, #70452a);
+  transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+  nav a[href="./registration.html"] {
+    top: auto;
+    bottom: 20px;
+    left: 60px;
+    right: auto;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* 💻 Десктопная версия */
+nav a[href="./registration.html"] {
+  position: fixed;
+  top: 20px;
+  left: 30px;
+  background: linear-gradient(135deg, #a67b5b, #5c4033);
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 2rem;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+nav a[href="./registration.html"]:hover {
+  background: linear-gradient(135deg, #d2a679, #70452a);
+  transform: scale(1.05);
+}
+
+/* 📱 Мобильная версия */
+@media (max-width: 768px) {
+  nav a[href="./registration.html"] {
+    position: static; /* убираем фикс */
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(135deg, #a67b5b, #5c4033);
+    padding: 0.6rem 1.2rem;
+    border-radius: 2rem;
+    width: fit-content;
+    box-shadow: 0 0.3rem 0.8rem rgba(0,0,0,0.3);
+    font-size: 1rem;
+  }
+
+  nav a[href="./registration.html"]:hover {
+    background: linear-gradient(135deg, #d2a679, #70452a);
+    transform: none;
+  }
+}
+
+/* === Кнопка входу === */
+.signin-btn {
+  position: fixed;
+  top: 20px;
+  left: 30px;
+  background: linear-gradient(135deg, #a67b5b, #5c4033);
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 2rem;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.signin-btn:hover {
+  background: linear-gradient(135deg, #d2a679, #70452a);
+  transform: scale(1.05);
+}
+
+/* === Модальне вікно === */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(4px);
+}
+
+/* Коли вікно активне (через :target) */
+.modal:target {
+  display: flex;
+}
+
+/* Вміст */
+.modal-content {
+  background: linear-gradient(135deg, #5c4033, #a67b5b);
+  color: #f5e6d3;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0.8rem 2rem rgba(0,0,0,0.5);
+  position: relative;
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Закрити */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.8rem;
+  color: #f5e6d3;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+
+.close:hover {
+  transform: scale(1.2);
+  color: #fff;
+}
+
+/* Поля */
+.modal-content input {
+  width: 90%;
+  padding: 0.6rem;
+  margin: 0.8rem 0;
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+}
+
+.auth-btn {
+  background: linear-gradient(135deg, #a67b5b, #5c4033);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.auth-btn:hover {
+  background: linear-gradient(135deg, #d2a679, #70452a);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+

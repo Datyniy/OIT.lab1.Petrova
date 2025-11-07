@@ -127,6 +127,7 @@ input:focus {
   box-shadow: 0 0 0.4rem rgba(255, 255, 255, 0.5);
 }
 
+/* --- Планшеты (до 1024px) --- */
 @media (max-width: 1024px) {
   nav {
     display: flex;
@@ -138,40 +139,31 @@ input:focus {
   nav a, .dropbtn {
     font-size: 1rem;
     padding: 0.5rem 1rem;
-    border-right: none;
   }
 
   .dropdown-content {
     position: static;
-    display: none;
     width: 100%;
-    background: rgba(60, 40, 30, 0.95);
     text-align: center;
   }
 
-  .dropdown:hover .dropdown-content {
-    display: block;
+  .search-box {
+    position: static;
+    transform: none;
+    margin: 1rem auto;
   }
 }
 
+/* --- Телефоны (до 768px) --- */
 @media (max-width: 768px) {
-  /* Заголовки */
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     text-align: center;
-    margin: 1rem 0;
   }
 
   h2, h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: center;
-    padding: 0 1rem;
-  }
-
-  /* Основные блоки */
-  .main-section {
-    padding: 1rem;
-    height: auto;
   }
 
   .about-content,
@@ -181,8 +173,7 @@ input:focus {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1.2rem;
-    padding: 1rem;
+    gap: 1rem;
   }
 
   .about-img,
@@ -200,44 +191,40 @@ input:focus {
     max-width: 500px;
   }
 
-  /* Кнопки */
-  input[type="submit"],
-  input[type="reset"],
-  .back-btn a,
-  .scroll-top {
-    font-size: 1rem;
-    padding: 0.6rem 1.2rem;
-  }
-
-  /* Наверх */
-  .scroll-top {
-    bottom: 1rem;
-    left: 1rem;
-  }
-
-  /* Убираем большие отступы */
-  body {
-    padding: 0;
-    margin: 0;
-  }
-}
-
-@media (max-width: 480px) {
   nav {
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  .dropbtn::after {
-    display: none; /* убираем стрелку, если не влезает */
+  nav a {
+    border: none;
+    display: block;
   }
 
+  .search-box {
+    width: 80%;
+    justify-content: center;
+  }
+
+  .search-box input {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+/* --- Очень маленькие экраны (до 480px) --- */
+@media (max-width: 480px) {
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   h2, h3 {
     font-size: 1rem;
+  }
+
+  nav a, .dropbtn {
+    font-size: 0.9rem;
+    padding: 0.4rem;
   }
 
   .about-img {
@@ -246,10 +233,14 @@ input:focus {
   }
 
   .hover-text h2 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .hover-text p {
     font-size: 0.9rem;
+  }
+
+  .search-box {
+    width: 90%;
   }
 }

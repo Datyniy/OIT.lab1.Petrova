@@ -13,6 +13,27 @@
 <body>
 
     <nav>
+       <!-- Кнопка входу -->
+<a href="#auth-modal" class="signin-btn">Sign in</a>
+
+<!-- Модальне вікно -->
+<div id="auth-modal" class="modal">
+  <div class="modal-content">
+    <a href="#" class="close">&times;</a>
+    <h2>Вхід у систему</h2>
+    <form>
+      <label for="email">Електронна пошта:</label>
+      <input type="email" id="email" placeholder="Введіть email" required>
+
+      <label for="password">Пароль:</label>
+      <input type="password" id="password" placeholder="Введіть пароль" required>
+
+      <button type="submit" class="auth-btn">Увійти</button>
+    </form>
+  </div>
+</div>
+
+
 
         <a href="./registration.html">Реєстрація на сайті</a>
         <a href="./wardroom.html">Опитувальник</a>
@@ -30,7 +51,6 @@
             <input type="text" name="q" placeholder="Пошук...">
             <button type="submit">🔍</button>
         </form>
-
     </nav>
 
 
