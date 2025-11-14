@@ -1,77 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кава</title>
+
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Clicker+Script&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body>
 
-    <nav>
-        
-       <!-- Кнопка входу -->
-<a href="#auth-modal" class="signin-btn">Sign in</a>
+<body id="top">
 
-<!-- Модальне вікно -->
-<div id="auth-modal" class="modal">
-  <div class="modal-content">
-    <a href="#" class="close">&times;</a>
-    <h2>Вхід у систему</h2>
-    <form>
-      <label for="email">Електронна пошта:</label>
-      <input type="email" id="email" placeholder="Введіть email" required>
+    <!-- Навігація -->
+    <nav class="fade-in fade-delay-1">
+        <!-- Sign in з модальним вікном -->
+        <a href="#auth-modal" class="signin-btn fade-in fade-delay-2">Sign in</a>
 
-      <label for="password">Пароль:</label>
-      <input type="password" id="password" placeholder="Введіть пароль" required>
+        <div class="nav-center">
+            <a href="./registration.html" class="fade-in fade-delay-3">Реєстрація на сайті</a>
+            <a href="./wardroom.html" class="fade-in fade-delay-3">Опитувальник</a>
 
-      <button type="submit" class="auth-btn">Увійти</button>
-    </form>
-  </div>
-</div>
+            <div class="dropdown fade-in fade-delay-4">
+                <a href="./about_us.html" class="dropbtn">Про нас</a>
+                <div class="dropdown-content">
+                    <a href="./history.html">Наша історія</a>
+                    <a href="./team.html">Команда</a>
+                    <a href="./contacts.html">Контакти</a>
+                </div>
+            </div>
 
+            <a href="./our_achievements.html" class="fade-in fade-delay-4">Наші досягнення</a>
+            <a href="./bootstrap.html" class="fade-in fade-delay-4">Bootstrap сторінка</a>
+        </div>
 
-
-        <a href="./registration.html">Реєстрація на сайті</a>
-        <a href="./wardroom.html">Опитувальник</a>
-         <div class="dropdown">
-             <a href="./about_us.html" class="dropbtn">Про нас</a>
-            <div class="dropdown-content">
-                <a href="./history.html">Наша історія</a>
-                 <a href="./team.html">Команда</a>
-                <a href="./contacts.html">Контакти</a>
-             </div>
-         </div>
-        <a href="./our_achievements.html">Наші досягнення</a>
-
-        <form class="search-box" action="#" method="get">
+        <!-- Пошук -->
+        <form class="search-box fade-in fade-delay-4" action="#" method="get">
             <input type="text" name="q" placeholder="Пошук...">
             <button type="submit">🔍</button>
         </form>
     </nav>
 
+    <!-- Модальне вікно авторизації -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content fade-in fade-delay-2">
+            <a href="#" class="close">&times;</a>
+            <h2>Вхід у систему</h2>
+            <form>
+                <label for="email">Електронна пошта:</label>
+                <input type="email" id="email" placeholder="Введіть email" required>
 
-    
-    <main class="main-section">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" placeholder="Введіть пароль" required>
 
-        <header> 
-            <h1>Кава</h1>
+                <button type="submit" class="auth-btn">Увійти</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Головний блок з кавою -->
+    <main >
+        <div class="main-section fade-in fade-delay-1">
+        <header>
+            <h1 class="fade-in fade-delay-2">Кава</h1>
         </header>
-        
-        
-        <h2>
+
+        <h2 class="fade-in fade-delay-3">
             <q>Нехай твоя кава буде чорною, понеділок — коротким, а п'ятниця — наповнена пивом та друзями в барі</q>
         </h2>
-        
-        <a href="#top" class="scroll-top" title="Наверх">▲</a>
-        
+        </div>
+
+         <!-- Відгуки -->
+    <section class="reviews fade-in fade-delay-2">
+        <h2 class="fade-in fade-delay-2">Відгуки наших гостей</h2>
+
+        <div class="review fade-in fade-delay-3">
+            <p>“Нарешті знайшла місце, де кава пахне так, ніби її щойно обсмажили! Дуже сподобалось капучино — пінка просто казкова.”</p>
+            <span>- Марина, 22 роки</span>
+        </div>
+
+        <div class="review fade-in fade-delay-4">
+            <p>“Атмосфера неймовірна! Я приходжу сюди працювати, і кожен раз беру лате з карамеллю. Це найкраще лате у місті!”</p>
+            <span>- Олег, 27 років</span>
+        </div>
+
+        <div class="review fade-in fade-delay-3">
+            <p>“Ваш пуровер — любов з першого ковтка. Не думала, що можна так відчути смак зерен.”</p>
+            <span>- Софія, 19 років</span>
+        </div>
+
+        <div class="review fade-in fade-delay-4">
+            <p>“Приємне місце для зустрічей. Кава ароматна, а десерти просто топ. Обов’язково повернуся!”</p>
+            <span>- Максим, 31 рік</span>
+        </div>
+
+        <div class="review fade-in fade-delay-3">
+            <p>“Мені сподобалась філософія кавʼярні — теплі кольори, затишок і турбота про якість. А ще дуже чемні бариста.”</p>
+            <span>- Анна, 25 років</span>
+        </div>
+    </section>
+
+        <!-- Кнопка вгору -->
+        <a href="#top" class="scroll-top fade-in fade-delay-4" title="Наверх">▲</a>
     </main>
-        
-    <footer>
+
+    <footer class="fade-in fade-delay-4">
         <h5>Заходьте до нас ще!</h5>
     </footer>
 

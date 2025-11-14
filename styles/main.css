@@ -1,132 +1,90 @@
 :root {
-  --main-bg: #2b1d1a;                
-  --overlay: rgba(0,0,0,0.5);        
-  --main-text: #f5e6d3;              
-  --secondary-text: #e8d6c0;         
-  --accent: #a67b5b;                
-  --accent-dark: #5c4033;            
-  --nav-bg: #e4e6e5;                 
-  --nav-link: #f5b683;               
-  --nav-link-hover: rgb(164, 131, 121);
+  color-scheme: dark; /* тема чёрная */
+  --main-bg: #050404;
+  --overlay: rgba(0,0,0,0.55);
+  --main-text: #f5e6d3;
+  --secondary-text: #e8d6c0;
+  --accent: #a67b5b;
+  --accent-dark: #5c4033;
+  --nav-bg: #1f1814;
+  --nav-border: #d2a679;
+  --nav-link: #f5b683;
+  --nav-link-hover: rgb(239, 190, 153);
   --font-header: "Clicker Script", cursive;
   --font-body: "Playfair Display", serif;
 }
 
-/* Заголовки с красивым шрифтом */
-.clicker-script-regular {
-  font-family: var(--font-header);
-  font-weight: 400;
-  font-style: normal;
+/* ===== БАЗА ===== */
+
+* {
+  box-sizing: border-box;
 }
 
-/* Главный блок */
-.main-section {
-  position: relative;
-  z-index: 0;
-  height: 25rem;
-  background-image: url("../image/coffee_image.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+body {
+  margin: 0;
+  background: var(--main-bg);
+  color: var(--main-text);
+  font-family: var(--font-body);
+}
+
+/* Заголовок внизу на всіх сторінках */
+h5 {
+  text-align: center;
+  font-family: var(--font-body);
+  color: #f5e6d3;
+  margin: 1.5rem 0 2rem;
+}
+
+/* ===== НАВІГАЦІЯ ===== */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  color: var(--main-text);
-  text-align: center;
-  padding: 2rem;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 3rem;
+  box-shadow: 0 0.4rem 0.9rem rgba(0,0,0,0.6);
 }
 
-/* Затемнение фона */
-.main-section::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5);
-  pointer-events: none; /* делает клики доступными */
-}
-
-/* Тексты */
-.main-section h1,
-.main-section h2 {
-  position: relative;
-  z-index: 1;
-  color: var(--main-text);
-  text-shadow: 0.2rem 0.2rem 0.4rem rgba(0,0,0,0.8);
-  margin: 0.5rem 0;
-}
-
-.main-section h1 {
-  font-family: var(--font-header);
-  font-size: 6rem;
-  font-weight: 400;
-  color: var(--main-text);
-  text-shadow: 0.4rem 0.4rem 0.8rem rgba(0,0,0,0.8);
-  margin-bottom: 1.5rem;
-  letter-spacing: 0.05rem;
-}
-
-.main-section h2 {
-  font-family: var(--font-body);
-  font-size: 2rem;
-  font-weight: 400;
-  color: var(--secondary-text);
-  text-shadow: 0.2rem 0.2rem 0.4rem rgba(0,0,0,0.6);
-}
-
-/* Навигация */
-nav {  
-  position: relative;
-  z-index: 100;
-  margin: 0;
-  border-bottom: #f5e3e8 solid 1px;
-  padding: 25px 5px;
-  background: var(--nav-bg);
-  text-align: center;
+/* Центр навігації (посилання) */
+.nav-center {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  gap: 1.8rem;
 }
 
 nav a {
-  padding: 0 32px;
-  border-right: #f5bba3 dotted 2px;
-  font-size: 18px;
+  font-size: 1rem;
   color: var(--nav-link);
   text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  text-decoration: underline; 
-  color: var(--nav-link-hover);
+  border-right: 1px dotted rgba(245, 187, 163, 0.6);
+  padding-right: 1.5rem;
 }
 
 nav a:last-child {
   border-right: none;
 }
 
-/* Контейнер для выпадающего меню */
-.dropdown {
-  position: relative;
-  display: inline-block;
-  z-index: 200;
-}
-
-/* Кнопка */
-.dropbtn {
-  color: var(--nav-link);
-  text-decoration: none;
-  padding: 0 32px;
-  font-size: 18px;
-  transition: color 0.3s;
-}
-
-.dropbtn:hover {
+nav a:hover {
   color: var(--nav-link-hover);
 }
 
-/* Стрелочка */
+/* ===== ВИПАДАЮЧЕ МЕНЮ "ПРО НАС" ===== */
+
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  padding-right: 1.5rem;
+}
+
 .dropbtn::after {
   content: " ▼";
   font-size: 0.8rem;
@@ -135,130 +93,70 @@ nav a:last-child {
 }
 
 .dropdown:hover .dropbtn::after {
-  transform: rotate(180deg); /* красивая анимация стрелки */
+  transform: rotate(180deg);
 }
 
-/* Подменю */
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 2.5rem;
+  top: 2.3rem;
   left: 0;
-  background: rgba(50, 35, 25, 0.95);
-  min-width: 160px;
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.4);
+  background: rgba(50, 35, 25, 0.98);
+  min-width: 170px;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.6);
   border-radius: 0.5rem;
-  z-index: 9999;
+  padding: 0.3rem 0;
+  z-index: 1500;
 }
 
-/* Ссылки в подменю */
 .dropdown-content a {
   display: block;
-  padding: 0.8rem 1rem;
+  padding: 0.6rem 1rem;
+  border-right: none;
   color: var(--main-text);
-  text-decoration: none;
   text-align: left;
-  transition: background 0.3s, color 0.3s;
 }
 
 .dropdown-content a:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--accent);
 }
 
-/* Показываем подменю при наведении */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* Кнопка "Назад" */
-.back-btn {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
-}
+/* ===== КНОПКА SIGN IN ===== */
 
-.back-btn a {
-  display: inline-block;
-  padding: 0.8rem 1.8rem;
+.signin-btn {
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   color: #fff;
+  padding: 0.45rem 1.4rem;
+  border-radius: 2rem;
   font-family: var(--font-body);
-  font-size: 1.1rem;
   font-weight: bold;
-  border-radius: 0.6rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.5);
   text-decoration: none;
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.4);
   transition: all 0.3s ease;
+  border-right: none;
 }
 
-.back-btn a:hover {
-  background: linear-gradient(135deg, #f5e6d3, #d2a679);
-  color: #2c2c2c;
-  transform: translateY(-0.2rem) scale(1.05);
-}
-
-/* Подвал */
-h5 {
-  text-align: center;
-  font-family: var(--font-body);
-  color: #292218;
-}
-
-.main-section::before {
-  pointer-events: none; /* делает фон некликабельным */
-}
-
-nav,
-.dropdown,
-.dropdown-content {
-  z-index: 10000; /* меню поверх фона */
-}
-
-.scroll-top {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background: linear-gradient(135deg, #a67b5b, #5c4033);
+.signin-btn:hover {
+  background: linear-gradient(135deg, #d2a679, #70452a);
+  transform: translateY(-1px) scale(1.04);
   color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  line-height: 50px;
-  text-decoration: none;
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.4);
-  z-index: 2000;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  opacity: 0.8;
 }
 
-.scroll-top:hover {
-  background: linear-gradient(135deg, #f5e6d3, #d2a679);
-  color: #2c2c2c;
-  transform: translateY(-5px) scale(1.05);
-  opacity: 1;
-}
-
-/* Контейнер пошуку */
+/* ===== ПОШУК ===== */
 
 .search-box {
-  position: absolute;
-  top: 50%;
-  right: 40px;
-  transform: translateY(-50%);
   display: flex;
   align-items: center;
-  background: rgba(93, 64, 55, 0.7);
+  background: rgba(93, 64, 55, 0.8);
   border: 1px solid #d2a679;
   border-radius: 2rem;
   padding: 0.2rem 0.6rem;
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.5);
   transition: all 0.3s ease;
 }
 
@@ -267,9 +165,9 @@ nav,
   border: none;
   outline: none;
   color: #f5e6d3;
-  padding: 0.5rem 0.8rem;
+  padding: 0.4rem 0.7rem;
   font-size: 1rem;
-  width: 120px;
+  width: 140px;
   transition: width 0.3s ease;
 }
 
@@ -283,344 +181,117 @@ nav,
   color: #f5e6d3;
   cursor: pointer;
   font-size: 1.2rem;
-  transition: color 0.3s ease;
+  padding-right: 0.2rem;
 }
 
 .search-box:hover {
-  background: rgba(93, 64, 55, 0.9);
-  transform: translateY(-50%) scale(1.05);
+  background: rgba(93, 64, 55, 0.95);
+  transform: scale(1.03);
 }
 
 .search-box:hover input {
-  width: 160px;
+  width: 180px;
 }
 
-.search-box button:hover {
-  color: #d2a679;
+/* ===== ГОЛОВНИЙ БЛОК З КАВОЮ ===== */
+
+.main-section {
+  position: relative;
+  min-height: 26rem;
+  background-image: url("../image/coffee_image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem 4rem;
+  color: var(--main-text);
 }
 
-/* --- Планшеты (до 1024px) --- */
-@media (max-width: 1024px) {
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 1rem;
-  }
-
-  nav a, .dropbtn {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .dropdown-content {
-    position: static;
-    width: 100%;
-    text-align: center;
-  }
-
-  .search-box {
-    position: static;
-    transform: none;
-    margin: 1rem auto;
-  }
+.main-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  pointer-events: none;
 }
 
-/* --- Телефоны (до 768px) --- */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.2rem;
-    text-align: center;
-  }
-
-  h2, h3 {
-    font-size: 1.1rem;
-    text-align: center;
-  }
-
-  .about-content,
-  .registration,
-  .achievements-content,
-  .wardroom-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-  }
-
-  .about-img,
-  .achievements-img {
-    width: 90%;
-    max-width: 400px;
-    height: auto;
-  }
-
-  .about-text,
-  .registration form,
-  .achievements-text,
-  .wardroom-text {
-    width: 90%;
-    max-width: 500px;
-  }
-
-  nav {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  nav a {
-    border: none;
-    display: block;
-  }
-
-  .search-box {
-    width: 80%;
-    justify-content: center;
-  }
-
-  .search-box input {
-    width: 100%;
-    font-size: 1rem;
-  }
+.main-section h1,
+.main-section h2 {
+  position: relative;
+  z-index: 1;
+  margin: 0.5rem 0;
 }
 
-/* --- Очень маленькие экраны (до 480px) --- */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  h2, h3 {
-    font-size: 1rem;
-  }
-
-  nav a, .dropbtn {
-    font-size: 0.9rem;
-    padding: 0.4rem;
-  }
-
-  .about-img {
-    width: 100%;
-    border-radius: 0.5rem;
-  }
-
-  .hover-text h2 {
-    font-size: 1.5rem;
-  }
-
-  .hover-text p {
-    font-size: 0.9rem;
-  }
-
-  .search-box {
-    width: 90%;
-  }
-}
-/* --- Планшеты (до 1024px) --- */
-@media (max-width: 1024px) {
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 1rem;
-  }
-
-  nav a, .dropbtn {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .dropdown-content {
-    position: static;
-    width: 100%;
-    text-align: center;
-  }
-
-  .search-box {
-    position: static;
-    transform: none;
-    margin: 1rem auto;
-  }
+.main-section h1 {
+  font-family: var(--font-header);
+  font-size: 5rem;
+  font-weight: 400;
+  text-shadow: 0.4rem 0.4rem 0.9rem rgba(0,0,0,0.9);
+  letter-spacing: 0.06rem;
+  color: var(--main-text);
 }
 
-/* --- Телефоны (до 768px) --- */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.2rem;
-    text-align: center;
-  }
-
-  h2, h3 {
-    font-size: 1.1rem;
-    text-align: center;
-  }
-
-  .about-content,
-  .registration,
-  .achievements-content,
-  .wardroom-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-  }
-
-  .about-img,
-  .achievements-img {
-    width: 90%;
-    max-width: 400px;
-    height: auto;
-  }
-
-  .about-text,
-  .registration form,
-  .achievements-text,
-  .wardroom-text {
-    width: 90%;
-    max-width: 500px;
-  }
-
-  nav {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  nav a {
-    border: none;
-    display: block;
-  }
-
-  .search-box {
-    width: 80%;
-    justify-content: center;
-  }
-
-  .search-box input {
-    width: 100%;
-    font-size: 1rem;
-  }
+.main-section h2 {
+  font-family: var(--font-body);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--secondary-text);
+  max-width: 80%;
+  text-shadow: 0.2rem 0.2rem 0.5rem rgba(0,0,0,0.8);
 }
 
-/* Кнопка Sign in (РЕЄСТРАЦІЯ) */
-nav a[href="./registration.html"] {
+/* ===== КНОПКА ВГОРУ (ПЛАВНО) ===== */
+
+.scroll-top {
   position: fixed;
-  top: 20px;
-  left: 30px;
-  background: linear-gradient(135deg, #a67b5b, #5c4033);
+  bottom: 18px;
+  left: 18px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   color: #fff;
-  padding: 0.6rem 1.4rem;
-  border-radius: 2rem;
-  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
   font-weight: bold;
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
   text-decoration: none;
+  box-shadow: 0 0.6rem 1.2rem rgba(0,0,0,0.6);
+  cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 9999;
+  opacity: 0.85;
+  z-index: 1200;
 }
 
-nav a[href="./registration.html"]:hover {
-  background: linear-gradient(135deg, #d2a679, #70452a);
-  transform: scale(1.05);
+.scroll-top:hover {
+  background: linear-gradient(135deg, #f5e6d3, #d2a679);
+  color: #2c2c2c;
+  transform: translateY(-4px) scale(1.05);
+  opacity: 1;
 }
 
+/* ===== МОДАЛЬНЕ ВІКНО SIGN IN (CSS-only) ===== */
 
-@media (max-width: 768px) {
-  nav a[href="./registration.html"] {
-    top: auto;
-    bottom: 20px;
-    left: 60px;
-    right: auto;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* 💻 Десктопная версия */
-nav a[href="./registration.html"] {
-  position: fixed;
-  top: 20px;
-  left: 30px;
-  background: linear-gradient(135deg, #a67b5b, #5c4033);
-  color: #fff;
-  padding: 0.6rem 1.4rem;
-  border-radius: 2rem;
-  font-family: "Playfair Display", serif;
-  font-weight: bold;
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  z-index: 9999;
-}
-
-nav a[href="./registration.html"]:hover {
-  background: linear-gradient(135deg, #d2a679, #70452a);
-  transform: scale(1.05);
-}
-
-/* 📱 Мобильная версия */
-@media (max-width: 768px) {
-  nav a[href="./registration.html"] {
-    position: static; /* убираем фикс */
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    background: linear-gradient(135deg, #a67b5b, #5c4033);
-    padding: 0.6rem 1.2rem;
-    border-radius: 2rem;
-    width: fit-content;
-    box-shadow: 0 0.3rem 0.8rem rgba(0,0,0,0.3);
-    font-size: 1rem;
-  }
-
-  nav a[href="./registration.html"]:hover {
-    background: linear-gradient(135deg, #d2a679, #70452a);
-    transform: none;
-  }
-}
-
-/* === Кнопка входу === */
-.signin-btn {
-  position: fixed;
-  top: 20px;
-  left: 30px;
-  background: linear-gradient(135deg, #a67b5b, #5c4033);
-  color: #fff;
-  padding: 0.6rem 1.4rem;
-  border-radius: 2rem;
-  font-family: "Playfair Display", serif;
-  font-weight: bold;
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  z-index: 9999;
-}
-
-.signin-btn:hover {
-  background: linear-gradient(135deg, #d2a679, #70452a);
-  transform: scale(1.05);
-}
-
-/* === Модальне вікно === */
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
+  inset: 0;
+  background: rgba(0,0,0,0.65);
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 10000;
+  z-index: 2000;
   backdrop-filter: blur(4px);
 }
 
-/* Коли вікно активне (через :target) */
 .modal:target {
   display: flex;
 }
 
-/* Вміст */
 .modal-content {
   background: linear-gradient(135deg, #5c4033, #a67b5b);
   color: #f5e6d3;
@@ -628,44 +299,41 @@ nav a[href="./registration.html"]:hover {
   border-radius: 1rem;
   width: 90%;
   max-width: 400px;
-  box-shadow: 0 0.8rem 2rem rgba(0,0,0,0.5);
+  box-shadow: 0 0.9rem 2.2rem rgba(0,0,0,0.7);
   position: relative;
   text-align: center;
-  animation: fadeIn 0.4s ease;
+  animation: fadeIn 0.35s ease;
 }
 
-/* Закрити */
-.close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 1.8rem;
-  color: #f5e6d3;
-  text-decoration: none;
-  transition: transform 0.3s;
+.modal-content h2 {
+  margin-top: 0;
+  font-family: var(--font-header);
+  font-size: 2.6rem;
 }
 
-.close:hover {
-  transform: scale(1.2);
-  color: #fff;
+.modal-content label {
+  display: block;
+  text-align: left;
+  margin-top: 0.7rem;
+  font-size: 0.95rem;
 }
 
-/* Поля */
 .modal-content input {
-  width: 90%;
-  padding: 0.6rem;
-  margin: 0.8rem 0;
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  margin-top: 0.3rem;
   border: none;
   border-radius: 0.4rem;
   font-size: 1rem;
 }
 
 .auth-btn {
+  margin-top: 1.1rem;
   background: linear-gradient(135deg, #a67b5b, #5c4033);
   color: #fff;
   border: none;
-  padding: 0.8rem 1.6rem;
-  border-radius: 0.5rem;
+  padding: 0.8rem 1.7rem;
+  border-radius: 0.6rem;
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s;
@@ -675,8 +343,246 @@ nav a[href="./registration.html"]:hover {
   background: linear-gradient(135deg, #d2a679, #70452a);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+.close {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  font-size: 1.9rem;
+  color: #f5e6d3;
+  text-decoration: none;
+  transition: transform 0.3s;
 }
 
+.close:hover {
+  transform: scale(1.15);
+  color: #ffffff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== ВІДГУКИ ====== */
+.reviews {
+  background: rgba(50, 35, 25, 0.8);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  border-radius: 1rem;
+  box-shadow: 0 0.8rem 1.4rem rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+}
+
+.reviews h2 {
+  font-family: "Clicker Script", cursive;
+  font-size: 3rem;
+  color: #f5e6d3;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 0.2rem 0.2rem 0.5rem rgba(0,0,0,0.8);
+}
+
+.review {
+  background: rgba(93, 64, 55, 0.7);
+  border-left: 5px solid #d2a679;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 0.7rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.review:hover {
+  transform: translateY(-4px);
+  background: rgba(93, 64, 55, 0.9);
+}
+
+.review p {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  color: #f5e6d3;
+  margin: 0 0 0.5rem 0;
+}
+
+.review span {
+  font-size: 0.9rem;
+  color: #e8d6c0;
+  font-style: italic;
+}
+
+/* ======================
+   АНІМАЦІЯ ПЛАВНОГО ПОЯВЛЕННЯ
+   ====================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease forwards;
+}
+
+/* затримки для різних блоків */
+.fade-delay-1 { animation-delay: 0.2s; }
+.fade-delay-2 { animation-delay: 0.4s; }
+.fade-delay-3 { animation-delay: 0.6s; }
+.fade-delay-4 { animation-delay: 0.8s; }
+
+/* Ключові кадри */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ===== ПІДКРАСИ КНОПОК ТА ЗОБРАЖЕНЬ ===== */
+.about-img,
+.review,
+.back-btn a,
+.signin-btn,
+.auth-btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-img:hover,
+.review:hover,
+.back-btn a:hover,
+.signin-btn:hover,
+.auth-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.8rem 1.4rem rgba(0,0,0,0.4);
+}
+
+/* ===== АДАПТИВ ===== */
+
+/* Планшети */
+@media (max-width: 1024px) {
+  nav {
+    padding: 0.6rem 1.5rem;
+  }
+
+  .nav-center {
+    gap: 1.2rem;
+  }
+
+  .search-box {
+    margin-left: 0.5rem;
+  }
+
+  .main-section h1 {
+    font-size: 4.2rem;
+  }
+
+  .main-section h2 {
+    font-size: 1.4rem;
+    max-width: 90%;
+  }
+}
+
+/* Телефони */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .nav-center {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  nav a {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .search-box {
+    width: 80%;
+    justify-content: center;
+    margin-top: 0.4rem;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .signin-btn {
+    order: -1;
+  }
+
+  .main-section {
+    padding: 2.5rem 1rem 3rem;
+  }
+
+  .main-section h1 {
+    font-size: 3.2rem;
+  }
+
+  .main-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .scroll-top {
+    bottom: 14px;
+    left: 14px;
+  }
+}
+
+/* Дуже маленькі телефони */
+@media (max-width: 480px) {
+  nav {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .main-section h1 {
+    font-size: 2.6rem;
+  }
+
+  .main-section h2 {
+    font-size: 1.05rem;
+  }
+
+  .search-box {
+    width: 90%;
+  }
+}
+
+/* ==== КНОПКА НАЗАД ==== */
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1100;
+}
+
+.back-btn a {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+
+.back-btn a:hover {
+  background: linear-gradient(135deg, #f5e6d3, #d2a679);
+  color: #2c2c2c;
+  transform: translateY(-0.15rem) scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .back-btn {
+    top: 14px;
+    left: 14px;
+  }
+
+  .back-btn a {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.9rem;
+  }
+}

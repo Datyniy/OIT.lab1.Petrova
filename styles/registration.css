@@ -1,31 +1,33 @@
 body {
   margin: 0;
   font-family: "Playfair Display", serif;
-  background: 
-    linear-gradient(rgba(93, 64, 55, 0.8), rgba(93, 64, 55, 0.8)), 
-    url("../image/Rectangle\ 14.png") no-repeat center center fixed;
+  background:
+    linear-gradient(rgba(93, 64, 55, 0.8), rgba(93, 64, 55, 0.8)),
+    url("../image/Rectangle 14.png") no-repeat center center fixed;
   background-size: cover;
+  overflow-x: hidden;
+}
+
+.side-coffee,
+.side-coffee2 {
+  position: fixed;
+  right: 0;
+  z-index: 0;
+  opacity: 0.9;
+  pointer-events: none;
 }
 
 .side-coffee {
-  position: fixed;  
-  right: 0;         
-  top: 4;        
-  width: 500px;      
-  z-index: 0;       
-  opacity: 0.9;   
-  pointer-events: none; 
+  top: 0;
+  width: 400px;
 }
 
-.side-coffee2{
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    width: 300px;
-    z-index: 0;
-    opacity: 0.9;
-    pointer-events: none;
+.side-coffee2 {
+  bottom: 0;
+  width: 250px;
 }
+
+/* ======= ОСНОВНОЙ КОНТЕЙНЕР ======= */
 
 .registration {
   background: rgba(0, 0, 0, 0.7);
@@ -33,214 +35,192 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 2rem;
+  padding: 2rem 1rem;
+  position: relative;
+  z-index: 2;
 }
+
+/* ======= ЗАГОЛОВОК ======= */
 
 h1 {
   font-family: "Clicker Script", cursive;
   font-size: 3.5rem;
-  margin-bottom: 1.5rem;
-  margin-top: 4rem;
   color: #f5e6d3;
+  margin-bottom: 1.5rem;
   text-shadow: 0.2rem 0.2rem 0.5rem rgba(0,0,0,0.8);
-  margin-left: 6rem;
+  text-align: center;
 }
 
+/* ======= ФОРМА ======= */
+
 form {
-  margin-left: 6rem;
   background: rgba(30, 30, 30, 0.85);
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.7);
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.8);
   width: 100%;
-  max-width: 400px;
+  max-width: 380px;
+  z-index: 3;
 }
 
+/* Подписи */
 label {
-  display: block;
-  margin-top: 1rem;
-  margin-bottom: 0.3rem;
   color: #f5d6b3;
   font-weight: bold;
+  margin-top: 0.7rem;
+  display: block;
 }
 
+/* Поля ввода */
 input[type="text"],
 input[type="password"] {
   width: 100%;
   padding: 0.7rem;
-  border: none;
   border-radius: 0.5rem;
+  border: none;
+  margin-top: 0.3rem;
   margin-bottom: 1rem;
   font-size: 1rem;
 }
 
+/* ======= КНОПКИ ======= */
+
 .btns {
   display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.2rem;
 }
 
 input[type="submit"],
 input[type="reset"] {
+  width: 100%;
   background: #8b5e3c;
   color: #fff;
-  padding: 0.8rem 1.5rem;
+  padding: 0.9rem 0;
   border: none;
-  border-radius: 0.5rem;
-  font-size: 1rem;
+  border-radius: 0.7rem;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.2s;
 }
 
 input[type="submit"]:hover {
   background: #a06f47;
+  transform: translateY(-2px);
 }
 
 input[type="reset"]:hover {
   background: #70452a;
+  transform: translateY(-2px);
 }
 
-.back-btn {
-  margin-bottom: 1.5rem;
-}
-
-
-
-.back-btn a:hover {
-  background: #7a523c;
-}
+/* ======= ВАЛИДАЦИЯ ======= */
 
 input:required:invalid {
   border: 2px solid #b15454;
   background: #fff0f0;
-  outline: none;
 }
 
 input:required:valid {
   border: 2px solid #4caf50;
   background: #f0fff0;
-  outline: none;
 }
 
 input:focus {
   box-shadow: 0 0 0.4rem rgba(255, 255, 255, 0.5);
 }
 
-/* --- Планшеты (до 1024px) --- */
+/* ======= КНОПКА НАЗАД ======= */
+
+.back-btn {
+  margin-bottom: 1rem;
+  z-index: 3;
+}
+
+.back-btn a {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: #8b5e3c;
+  color: white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.back-btn a:hover {
+  background: #70452a;
+}
+
+/* ======= АДАПТИВ ======= */
+
+/* ▶ Планшеты */
 @media (max-width: 1024px) {
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 1rem;
-  }
-
-  nav a, .dropbtn {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .dropdown-content {
-    position: static;
-    width: 100%;
-    text-align: center;
-  }
-
-  .search-box {
-    position: static;
-    transform: none;
-    margin: 1rem auto;
-  }
+  .side-coffee { width: 300px; }
+  .side-coffee2 { width: 200px; }
 }
 
-/* --- Телефоны (до 768px) --- */
+/* ▶ Телефоны */
 @media (max-width: 768px) {
+
   h1 {
-    font-size: 2.2rem;
-    text-align: center;
+    font-size: 2.6rem;
   }
 
-  h2, h3 {
-    font-size: 1.1rem;
-    text-align: center;
+  form {
+    max-width: 100%;
+    padding: 1.5rem;
   }
 
-  .about-content,
-  .registration,
-  .achievements-content,
-  .wardroom-content {
+  .btns {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
   }
 
-  .about-img,
-  .achievements-img {
-    width: 90%;
-    max-width: 400px;
-    height: auto;
-  }
-
-  .about-text,
-  .registration form,
-  .achievements-text,
-  .wardroom-text {
-    width: 90%;
-    max-width: 500px;
-  }
-
-  nav {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  nav a {
-    border: none;
-    display: block;
-  }
-
-  .search-box {
-    width: 80%;
-    justify-content: center;
-  }
-
-  .search-box input {
+  input[type="submit"],
+  input[type="reset"] {
     width: 100%;
-    font-size: 1rem;
+  }
+
+  .side-coffee,
+  .side-coffee2 {
+    display: none; /* убираем большие картинки */
   }
 }
 
-/* --- Очень маленькие экраны (до 480px) --- */
+/* ▶ Очень маленькие телефоны */
 @media (max-width: 480px) {
+
   h1 {
-    font-size: 1.8rem;
+    font-size: 2.1rem;
   }
 
-  h2, h3 {
-    font-size: 1rem;
+  form {
+    padding: 1.2rem;
   }
 
-  nav a, .dropbtn {
-    font-size: 0.9rem;
-    padding: 0.4rem;
-  }
-
-  .about-img {
-    width: 100%;
-    border-radius: 0.5rem;
-  }
-
-  .hover-text h2 {
-    font-size: 1.5rem;
-  }
-
-  .hover-text p {
+  input[type="text"],
+  input[type="password"] {
     font-size: 0.9rem;
   }
+}
 
-  .search-box {
-    width: 90%;
-  }
+input[type="text"],
+input[type="password"] {
+    background: rgba(80, 60, 50, 0.85);   
+    color: #513716;                      
+    border: 2px solid #a67b5b;            
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: #5e4323;                       
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    background: rgba(90, 70, 60, 0.9);
+    border-color: #d2a679;
+    box-shadow: 0 0 8px rgba(210, 166, 121, 0.6);
+    color: #fff;
 }
