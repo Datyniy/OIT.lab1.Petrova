@@ -426,14 +426,14 @@ nav a:hover {
 .fade-delay-3 { animation-delay: 0.6s; }
 .fade-delay-4 { animation-delay: 0.8s; }
 
-/* Ключові кадри */
+
 @keyframes fadeIn {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-/* ===== ПІДКРАСИ КНОПОК ТА ЗОБРАЖЕНЬ ===== */
+
 .about-img,
 .review,
 .back-btn a,
@@ -451,9 +451,7 @@ nav a:hover {
   box-shadow: 0 0.8rem 1.4rem rgba(0,0,0,0.4);
 }
 
-/* ===== АДАПТИВ ===== */
 
-/* Планшети */
 @media (max-width: 1024px) {
   nav {
     padding: 0.6rem 1.5rem;

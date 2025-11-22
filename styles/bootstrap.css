@@ -1,0 +1,94 @@
+body {
+    background: linear-gradient(135deg, #5c4033, #2b1d1a);
+    color: #f5e6d3;
+    font-family: "Playfair Display", serif;
+    margin: 0;
+}
+
+/* Заголовки */
+h1, h2 {
+    font-family: "Clicker Script", cursive;
+    color: #f5e6d3;
+    text-shadow: 0 0.25rem 0.6rem rgba(0,0,0,0.7);
+}
+
+/* Картки */
+.coffee-card {
+    background: #3b2924;
+    border: none;
+    border-radius: 1rem;
+    overflow: hidden;
+    color: #f5e6d3;
+    box-shadow: 0 0.7rem 1.4rem rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.coffee-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.6);
+}
+
+.coffee-card img {
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Відгуки */
+.feedback-card {
+    background: #4a342e;
+    border-radius: 1rem;
+    border: none;
+    color: #f5e6d3;
+    box-shadow: 0 0.6rem 1rem rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.feedback-card:hover {
+    transform: translateY(-5px);
+    background: #5d4037;
+}
+
+/* Кнопка назад */
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, #a67b5b, #5c4033);
+    padding: 0.6rem 1.2rem;
+    border-radius: .6rem;
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.5);
+    font-weight: bold;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.back-btn:hover {
+    background: linear-gradient(135deg, #f5e6d3, #d2a679);
+    color: #2b1d1a;
+    transform: translateY(-3px) scale(1.04);
+}
+
+/* Контейнер */
+.container {
+    padding-bottom: 3rem;
+}
+
+/* Текст у картках */
+.card-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.4rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+    .coffee-card img {
+        height: 180px;
+    }
+}
